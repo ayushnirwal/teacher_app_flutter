@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:octo_teacher_app/pages/Login1.dart';
-import 'package:octo_teacher_app/pages/OnBoarding1.dart';
+import 'package:octo_teacher_app/pages/Login3.dart';
 import 'package:octo_teacher_app/pages/Widgets/Login/MidBar.dart';
 import 'package:octo_teacher_app/pages/Widgets/Login/OTPEntry.dart';
 import 'package:octo_teacher_app/pages/Widgets/Login/PhoneNumberInput.dart';
@@ -75,7 +75,7 @@ class _Login2State extends State<Login2> {
                               BackPage: Login1(
                                 phoneNumber: widget.phoneNumber,
                               ),
-                              filledBubleCount: 2,
+                              fillArray: [true, true, false],
                             ),
                             MidBar(
                               smallText: "Verify phone number",
@@ -164,7 +164,7 @@ class _Login2State extends State<Login2> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      OnBoarding1()));
+                                                      Login3()));
                                         },
                                         child: Center(
                                             child: Directionality(

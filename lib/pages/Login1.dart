@@ -34,7 +34,7 @@ class Login1 extends StatelessWidget {
                         children: [
                           TopBar(
                             BackPage: LandingScreen(),
-                            filledBubleCount: 1,
+                            fillArray: [true, false, false],
                           ),
                           MidBar(
                             smallText: "Let's Start",

@@ -49,6 +49,10 @@ flutter:
     - assets/images/OnBoarding1.png
     - assets/icons/back.png
     - assets/icons/edit.png
+    - assets/images/LoginVerifyingPhone.png
+    - assets/images/Walkthrough1.png
+    - assets/images/Walkthrough2.png
+    - assets/images/Walkthrough3.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

@@ -3,10 +3,10 @@ import 'package:octo_teacher_app/pages/Widgets/Login/Bubble.dart';
 
 class TopBar extends StatelessWidget {
   final color = const Color(0xff3030ED);
+  final List<bool> fillArray;
 
   final Widget BackPage;
-  final int filledBubleCount;
-  TopBar({required this.BackPage, required this.filledBubleCount});
+  TopBar({required this.BackPage, required this.fillArray});
   @override
   Widget build(BuildContext context) {
     double c_width = MediaQuery.of(context).size.width;
@@ -39,7 +39,10 @@ class TopBar extends StatelessWidget {
               )),
           Container(
               child: Bubble(
-            number: filledBubleCount,
+            fillArarry: fillArray,
+            fillColor: color,
+            emptyColor: Color(0xffC2C2C2),
+            bubbleRadius: 10.0,
           ))
         ],
       ),
