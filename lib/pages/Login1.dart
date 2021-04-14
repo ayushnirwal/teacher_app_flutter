@@ -4,6 +4,10 @@ import 'package:octo_teacher_app/pages/Login2.dart';
 import 'package:octo_teacher_app/pages/Widgets/Login/MidBar.dart';
 import 'package:octo_teacher_app/pages/Widgets/Login/PhoneNumberInput.dart';
 import 'package:octo_teacher_app/pages/Widgets/Login/TopBar.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:octo_teacher_app/redux/Stores/UserStore/UserActions.dart';
+import 'package:redux/redux.dart';
+import 'package:octo_teacher_app/redux/AppState.dart';
 
 // MaterialApp(home: SafeArea(child: Scaffold(body: LandingScreen())))
 //
@@ -12,12 +16,6 @@ class Login1 extends StatelessWidget {
   final color = const Color(0xff3030ED);
   final grey = const Color(0xffF4f4f4);
   final phoneNumberController = TextEditingController();
-  String phoneNumber = "";
-
-  Login1({phoneNumber}) {
-    this.phoneNumber = phoneNumber;
-    phoneNumberController.text = phoneNumber;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,11 +57,17 @@ class Login1 extends StatelessWidget {
                                             color: Colors.black,
                                             decoration: TextDecoration.none),
                                       )),
-                                  PhoneNumberInput(
-                                    type: Type.input,
-                                    phoneNumber: phoneNumber,
-                                    controller: phoneNumberController,
-                                  ),
+                                  StoreConnector<AppState, String>(
+                                      converter: (store) =>
+                                          store.state.userState.phoneNumber,
+                                      builder: (context, phoneNumber) {
+                                        phoneNumberController.text =
+                                            phoneNumber;
+                                        return PhoneNumberInput(
+                                            controller: phoneNumberController,
+                                            type: Type.input,
+                                            phoneNumber: phoneNumber);
+                                      })
                                 ]),
                           )),
                           Container(
@@ -77,36 +81,46 @@ class Login1 extends StatelessWidget {
                                       BorderRadius.all(Radius.circular(8))),
                               child: Directionality(
                                   textDirection: TextDirection.ltr,
-                                  child: TextButton(
-                                      onPressed: () {
-                                        if (phoneNumberController.text.length ==
-                                            10) {
-                                          //dispatch login action
+                                  child: StoreConnector<AppState, Store>(
+                                    converter: (store) => store,
+                                    builder: (context, store) {
+                                      return TextButton(
+                                          onPressed: () {
+                                            if (phoneNumberController
+                                                    .text.length ==
+                                                10) {
+                                              store.dispatch(
+                                                  phoneNumberInputAction(
+                                                      phoneNumberController
+                                                          .text,
+                                                      0));
 
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) => Login2(
-                                                      phoneNumber:
-                                                          phoneNumberController
-                                                              .text,
-                                                    )),
-                                          );
-                                        }
-                                      },
-                                      child: Center(
-                                          child: Directionality(
-                                              textDirection: TextDirection.ltr,
-                                              child: Text(
-                                                'Next',
-                                                style: TextStyle(
-                                                    fontFamily: 'Epilogue',
-                                                    fontSize: 14,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.white,
-                                                    decoration:
-                                                        TextDecoration.none),
-                                              ))))))
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        Login2()),
+                                              );
+                                            }
+                                          },
+                                          child: Center(
+                                              child: Directionality(
+                                                  textDirection:
+                                                      TextDirection.ltr,
+                                                  child: Text(
+                                                    'Next',
+                                                    style: TextStyle(
+                                                        fontFamily: 'Epilogue',
+                                                        fontSize: 14,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.white,
+                                                        decoration:
+                                                            TextDecoration
+                                                                .none),
+                                                  ))));
+                                    },
+                                  )))
                         ])))));
   }
 }

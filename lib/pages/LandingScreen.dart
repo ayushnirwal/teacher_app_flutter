@@ -55,10 +55,7 @@ class LandingScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => Login1(
-                                    phoneNumber: "",
-                                  )),
+                          MaterialPageRoute(builder: (context) => Login1()),
                         );
                       },
                       child: Center(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:octo_teacher_app/pages/Login1.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
 enum Type { input, display }
 
@@ -70,10 +71,7 @@ class PhoneNumberInput extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => Login1(
-                              phoneNumber: phoneNumber,
-                            )),
+                    MaterialPageRoute(builder: (context) => Login1()),
                   );
                 },
               ))

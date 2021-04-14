@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'dart:async';
 
 import 'package:octo_teacher_app/pages/Login1.dart';
@@ -7,12 +8,9 @@ import 'package:octo_teacher_app/pages/Widgets/Login/MidBar.dart';
 import 'package:octo_teacher_app/pages/Widgets/Login/OTPEntry.dart';
 import 'package:octo_teacher_app/pages/Widgets/Login/PhoneNumberInput.dart';
 import 'package:octo_teacher_app/pages/Widgets/Login/TopBar.dart';
+import 'package:octo_teacher_app/redux/AppState.dart';
 
 class Login2 extends StatefulWidget {
-  final String phoneNumber;
-
-  Login2({required this.phoneNumber});
-
   @override
   _Login2State createState() => _Login2State();
 }
@@ -72,9 +70,7 @@ class _Login2State extends State<Login2> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             TopBar(
-                              BackPage: Login1(
-                                phoneNumber: widget.phoneNumber,
-                              ),
+                              BackPage: Login1(),
                               fillArray: [true, true, false],
                             ),
                             MidBar(
@@ -101,9 +97,14 @@ class _Login2State extends State<Login2> {
                                               color: Colors.black,
                                               decoration: TextDecoration.none),
                                         )),
-                                    PhoneNumberInput(
-                                        type: Type.display,
-                                        phoneNumber: widget.phoneNumber),
+                                    StoreConnector<AppState, String>(
+                                        converter: (store) =>
+                                            store.state.userState.phoneNumber,
+                                        builder: (context, phoneNumber) {
+                                          return PhoneNumberInput(
+                                              type: Type.display,
+                                              phoneNumber: phoneNumber);
+                                        }),
                                     Container(
                                         height: 48.0,
                                         margin:
