@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:octo_teacher_app/pages/Widgets/Login/Bubble.dart';
+import 'package:octo_teacher_app/pages/Login/Widgets/Bubble.dart';
 
 class TopBar extends StatelessWidget {
   final color = const Color(0xff3030ED);

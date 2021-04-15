@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:octo_teacher_app/pages/Login1.dart';
-import 'package:flutter_redux/flutter_redux.dart';
+import 'package:octo_teacher_app/pages/Login/Login1.dart';
 
 enum Type { input, display }
 

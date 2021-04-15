@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:octo_teacher_app/pages/Widgets/Login/Bubble.dart';
 
 class WalkThrough1 extends StatelessWidget {
   final color = const Color(0xff3030ED);

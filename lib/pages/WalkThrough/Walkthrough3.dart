@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:octo_teacher_app/pages/OnBoarding1.dart';
+import 'package:octo_teacher_app/pages/OnBoarding/OnBoarding.dart';
+import 'package:octo_teacher_app/pages/OnBoarding/OnBoarding1.dart';
 
 class WalkThrough3 extends StatelessWidget {
   final color = const Color(0xff3030ED);
@@ -46,7 +47,7 @@ class WalkThrough3 extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => OnBoarding1()));
+                              builder: (context) => OnBoarding()));
                     },
                     child: Center(
                         child: Directionality(

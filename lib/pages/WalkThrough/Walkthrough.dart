@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:octo_teacher_app/pages/OnBoarding1.dart';
-import 'package:octo_teacher_app/pages/Walkthrough1.dart';
-import 'package:octo_teacher_app/pages/Walkthrough2.dart';
-import 'package:octo_teacher_app/pages/Walkthrough3.dart';
-import 'package:octo_teacher_app/pages/Widgets/Login/Bubble.dart';
+import 'package:octo_teacher_app/pages/OnBoarding/OnBoarding.dart';
+import 'package:octo_teacher_app/pages/OnBoarding/OnBoarding1.dart';
+import 'package:octo_teacher_app/pages/WalkThrough/Widgets/Bubble.dart';
+import 'package:octo_teacher_app/pages/WalkThrough/Walkthrough1.dart';
+import 'package:octo_teacher_app/pages/WalkThrough/Walkthrough2.dart';
+import 'package:octo_teacher_app/pages/WalkThrough/Walkthrough3.dart';
 
 // ignore: must_be_immutable
 class WalkThrough extends StatefulWidget {
@@ -30,7 +31,7 @@ class _WalkThroughState extends State<WalkThrough> {
             child: TextButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => OnBoarding1()));
+                    MaterialPageRoute(builder: (context) => OnBoarding()));
               },
               child: Column(
                 children: [

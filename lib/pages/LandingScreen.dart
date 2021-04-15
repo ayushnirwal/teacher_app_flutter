@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Login1.dart';
+import 'package:octo_teacher_app/pages/Login/Login1.dart';
 
 class LandingScreen extends StatelessWidget {
   final color = const Color(0xff3030ED);

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:octo_teacher_app/redux/Stores/UserStore/UserActionTypes.dart';
+import 'package:octo_teacher_app/redux/Stores/UserStore/UserActions.dart';
+import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:octo_teacher_app/pages/Login/Login1.dart';
+import 'package:octo_teacher_app/pages/Login/Login3.dart';
+import 'package:octo_teacher_app/pages/Login/Widgets/MidBar.dart';
+import 'package:octo_teacher_app/pages/Login/Widgets/OTPEntry.dart';
+import 'package:octo_teacher_app/pages/Login/Widgets/PhoneNumberInput.dart';
+import 'package:octo_teacher_app/pages/Login/Widgets/TopBar.dart';
 import 'dart:async';
-
-import 'package:octo_teacher_app/pages/Login1.dart';
-import 'package:octo_teacher_app/pages/Login3.dart';
-import 'package:octo_teacher_app/pages/Widgets/Login/MidBar.dart';
-import 'package:octo_teacher_app/pages/Widgets/Login/OTPEntry.dart';
-import 'package:octo_teacher_app/pages/Widgets/Login/PhoneNumberInput.dart';
-import 'package:octo_teacher_app/pages/Widgets/Login/TopBar.dart';
 import 'package:octo_teacher_app/redux/AppState.dart';
 
 class Login2 extends StatefulWidget {
@@ -159,29 +161,38 @@ class _Login2State extends State<Login2> {
                                         BorderRadius.all(Radius.circular(8))),
                                 child: Directionality(
                                     textDirection: TextDirection.ltr,
-                                    child: TextButton(
-                                        onPressed: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Login3()));
-                                        },
-                                        child: Center(
-                                            child: Directionality(
-                                                textDirection:
-                                                    TextDirection.ltr,
-                                                child: Text(
-                                                  'Next',
-                                                  style: TextStyle(
-                                                      fontFamily: 'Epilogue',
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: Colors.white,
-                                                      decoration:
-                                                          TextDecoration.none),
-                                                ))))))
+                                    child: StoreConnector<AppState, Store>(
+                                      converter: (state) => state,
+                                      builder: (context, store) {
+                                        return TextButton(
+                                            onPressed: () {
+                                              store.dispatch(
+                                                  otpVerificationAction());
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          Login3()));
+                                            },
+                                            child: Center(
+                                                child: Directionality(
+                                                    textDirection:
+                                                        TextDirection.ltr,
+                                                    child: Text(
+                                                      'Next',
+                                                      style: TextStyle(
+                                                          fontFamily:
+                                                              'Epilogue',
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.white,
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .none),
+                                                    ))));
+                                      },
+                                    )))
                           ]),
                     )))));
   }

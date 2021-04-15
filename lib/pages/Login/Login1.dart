@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:octo_teacher_app/pages/LandingScreen.dart';
-import 'package:octo_teacher_app/pages/Login2.dart';
-import 'package:octo_teacher_app/pages/Widgets/Login/MidBar.dart';
-import 'package:octo_teacher_app/pages/Widgets/Login/PhoneNumberInput.dart';
-import 'package:octo_teacher_app/pages/Widgets/Login/TopBar.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:octo_teacher_app/pages/Login/Login2.dart';
+import 'package:octo_teacher_app/pages/Login/Widgets/MidBar.dart';
+import 'package:octo_teacher_app/pages/Login/Widgets/PhoneNumberInput.dart';
+import 'package:octo_teacher_app/pages/Login/Widgets/TopBar.dart';
 import 'package:octo_teacher_app/redux/Stores/UserStore/UserActions.dart';
 import 'package:redux/redux.dart';
 import 'package:octo_teacher_app/redux/AppState.dart';

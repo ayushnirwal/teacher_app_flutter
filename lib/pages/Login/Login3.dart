@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:octo_teacher_app/pages/Walkthrough.dart';
+import 'package:octo_teacher_app/pages/WalkThrough/Walkthrough.dart';
 
 class Login3 extends StatefulWidget {
   @override

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:octo_teacher_app/pages/Widgets/OnBoarding/Bubble.dart';
 
 class TopBar extends StatelessWidget {
   final color = const Color(0xff3030ED);
 
-  final Widget BackPage;
-  TopBar({required this.BackPage});
+  final Widget backPage;
+  TopBar({required this.backPage});
   @override
   Widget build(BuildContext context) {
     double c_width = MediaQuery.of(context).size.width;
@@ -31,7 +30,7 @@ class TopBar extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => BackPage),
+                    MaterialPageRoute(builder: (context) => backPage),
                   );
                 },
               )),
